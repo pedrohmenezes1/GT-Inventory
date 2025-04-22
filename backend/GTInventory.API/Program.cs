@@ -1,8 +1,15 @@
+using GTInventory.Application.Services;
+using GTInventory.Domain.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Registrar o serviço de autenticação com LDAP
+builder.Services.AddScoped<IUserService, LdapUserService>();
+
 
 var app = builder.Build();
 

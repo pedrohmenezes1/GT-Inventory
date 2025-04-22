@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GTInventory.Application\GTInventory.Application.csproj" />
     <ProjectReference Include="..\GTInventory.Infrastructure\GTInventory.Infrastructure.csproj" />
+    <ProjectReference Include="..\GTInventory.Domain\GTInventory.Domain.csproj" />
   </ItemGroup>
 
 </Project>

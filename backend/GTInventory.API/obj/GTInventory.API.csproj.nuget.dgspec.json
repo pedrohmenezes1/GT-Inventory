@@ -29,6 +29,9 @@
               "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Application\\GTInventory.Application.csproj": {
                 "projectPath": "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Application\\GTInventory.Application.csproj"
               },
+              "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Domain\\GTInventory.Domain.csproj": {
+                "projectPath": "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Domain\\GTInventory.Domain.csproj"
+              },
               "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Infrastructure\\GTInventory.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Infrastructure\\GTInventory.Infrastructure.csproj"
               }
@@ -122,6 +125,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Novell.Directory.Ldap.NETStandard": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

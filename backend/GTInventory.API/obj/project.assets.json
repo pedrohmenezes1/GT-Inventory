@@ -596,6 +596,22 @@
           }
         }
       },
+      "Novell.Directory.Ldap.NETStandard/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.2"
+        },
+        "compile": {
+          "lib/net9.0/Novell.Directory.Ldap.NETStandard.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Novell.Directory.Ldap.NETStandard.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.ClientModel/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -1025,7 +1041,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "GTInventory.Domain": "1.0.0"
+          "GTInventory.Domain": "1.0.0",
+          "Novell.Directory.Ldap.NETStandard": "4.0.0"
         },
         "compile": {
           "bin/placeholder/GTInventory.Application.dll": {}
@@ -1946,6 +1963,29 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Novell.Directory.Ldap.NETStandard/4.0.0": {
+      "sha512": "qyaOhuyv5nhp35yK3X0cBa+pnuVyOqec37LKQDzRSmFPECn6d1cnxBCrJdaqgaWuvOQtWa1rqlEaZyp+lpcXZQ==",
+      "type": "package",
+      "path": "novell.directory.ldap.netstandard/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/net6.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/net7.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/net7.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/net8.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/net8.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/net9.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/net9.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/netstandard2.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/netstandard2.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/netstandard2.1/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/netstandard2.1/Novell.Directory.Ldap.NETStandard.xml",
+        "novell.directory.ldap.netstandard.4.0.0.nupkg.sha512",
+        "novell.directory.ldap.netstandard.nuspec"
+      ]
+    },
     "System.ClientModel/1.0.0": {
       "sha512": "I3CVkvxeqFYjIVEP59DnjbeoGNfo/+SZrCLpRz2v/g0gpCHaEMPtWSY0s9k/7jR1rAsLNg2z2u1JRB76tPjnIw==",
       "type": "package",
@@ -2859,6 +2899,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "GTInventory.Application >= 1.0.0",
+      "GTInventory.Domain >= 1.0.0",
       "GTInventory.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 9.0.4"
     ]
@@ -2890,6 +2931,9 @@
           "projectReferences": {
             "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Application\\GTInventory.Application.csproj": {
               "projectPath": "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Application\\GTInventory.Application.csproj"
+            },
+            "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Domain\\GTInventory.Domain.csproj": {
+              "projectPath": "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Domain\\GTInventory.Domain.csproj"
             },
             "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Infrastructure\\GTInventory.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Infrastructure\\GTInventory.Infrastructure.csproj"

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "zNpqWFUzpwE=",
+  "dgSpecHash": "Phsyrd6jXCU=",
   "success": true,
   "projectFilePath": "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\GT-Inventory\\backend\\GTInventory.Application\\GTInventory.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.2\\microsoft.extensions.dependencyinjection.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.2\\microsoft.extensions.logging.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\novell.directory.ldap.netstandard\\4.0.0\\novell.directory.ldap.netstandard.4.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
