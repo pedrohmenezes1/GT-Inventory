@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\GTInventory.Domain\GTInventory.Domain.csproj" />
+    <ProjectReference Include="..\GTInventory.Infrastructure\GTInventory.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
