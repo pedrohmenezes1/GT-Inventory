@@ -1,30 +1,47 @@
-# Grupo Tupan - Sistema de Controle de Equipamentos
+# GT-Inventory - Sistema de Controle de Equipamentos  
+**Grupo Tupan**
 
+## 📘 Descrição do Projeto
 
-## Descrição do Projeto
+O **GT-Inventory** é um sistema desenvolvido para o **Grupo Tupan**, com o objetivo de facilitar o **gerenciamento e a transferência de equipamentos de informática** entre diversas filiais da empresa. O sistema permite o controle total dos ativos, otimizando a gestão de recursos e aumentando a eficiência da equipe de TI.
 
-O **Sistema de Controle de Equipamentos** do Grupo Tupan foi desenvolvido para facilitar o gerenciamento e a transferência de equipamentos de informática entre diversas filiais. Este sistema visa otimizar o controle de ativos, garantindo que todos os equipamentos sejam monitorados de forma eficiente e segura.
+---
 
-## Objetivos
+## 🎯 Objetivos
 
-- **Gerenciar Equipamentos**: Permitir o cadastro, atualização e remoção de equipamentos em todas as filiais.
-- **Facilitar Transferências**: Proporcionar um processo simples e rápido para a transferência de equipamentos entre diferentes locais.
-- **Relatórios e Análises**: Gerar relatórios detalhados sobre o status dos equipamentos, ajudando na tomada de decisões.
-- **Segurança**: Implementar um sistema de autenticação para garantir que apenas usuários autorizados tenham acesso às informações.
+- **Gerenciar Equipamentos:** Cadastro, edição e exclusão de equipamentos por filial.
+- **Facilitar Transferências:** Permitir movimentação rápida e rastreável de ativos entre locais.
+- **Relatórios e Análises:** Geração de relatórios para auxiliar a tomada de decisão.
+- **Segurança:** Autenticação baseada em Active Directory (AD) via LDAP.
 
-## Funcionalidades
+---
 
-- **Cadastro de Equipamentos**: Adicione novos equipamentos com informações detalhadas, como tipo, modelo, número de série e localização.
-- **Controle de Estoque**: Monitore a quantidade de equipamentos disponíveis em cada filial.
-- **Transferência de Equipamentos**: Realize transferências de equipamentos entre filiais com facilidade.
-- **Login Seguro**: Sistema de autenticação com login e senha para proteger as informações.
-- **Interface Intuitiva**: Design amigável que facilita a navegação e o uso do sistema.
+## 🚀 Funcionalidades
 
-## Tecnologias Utilizadas
+- ✅ **Cadastro de Equipamentos:** Registro de tipo, modelo, número de série, localização, etc.
+- ✅ **Controle de Estoque:** Visão por filial da disponibilidade e alocação de equipamentos.
+- ✅ **Transferência de Equipamentos:** Processo controlado de envio/recebimento entre unidades.
+- ✅ **Login Seguro:** Autenticação via **Active Directory (LDAP)** com geração de **JWT**.
+- ✅ **Interface Intuitiva:** Sistema moderno com navegação simplificada.
 
-- **Front-end**: React, HTML, CSS
-- **Back-end**: Node.js, Express
-- **Banco de Dados**: MongoDB
-- **Autenticação**: JWT (JSON Web Token)
+---
 
-## Estrutura do Projeto
+## 🧰 Tecnologias Utilizadas
+
+### 🔹 **Frontend**
+- [React](https://react.dev/)
+- HTML5 + CSS3
+- TailwindCSS (ou outro framework moderno)
+
+### 🔹 **Backend**
+- [ASP.NET Core 8 (C#)](https://learn.microsoft.com/en-us/aspnet/core/)
+- Autenticação via [Novell LDAP](https://github.com/dsbenghe/Novell.Directory.Ldap.NETStandard)
+- JWT para autenticação
+
+### 🔹 **Banco de Dados**
+- SQL Server Express (local ou em rede)
+
+---
+
+## 🏗️ Estrutura do Projeto
+
