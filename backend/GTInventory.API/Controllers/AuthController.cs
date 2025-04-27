@@ -1,31 +1,35 @@
-using GTInventory.Application.DTOs.Auth;
-using GTInventory.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using GTInventory.Application.DTOs.Auth;
+using GTInventory.Application.Services;
+using Microsoft.AspNetCore.Authorization;
 
-namespace GTInventory.API.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class AuthController : ControllerBase
+namespace GTInventory.API.Controllers
 {
-    private readonly IUserService _userService;
-
-    public AuthController(IUserService userService)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AuthController : ControllerBase
     {
-        _userService = userService;
-    }
+        private readonly IUserService _userService;
 
-    [HttpPost("login")]
-    public IActionResult Login([FromBody] LoginRequest request)
-    {
-        try
+        public AuthController(IUserService userService)
         {
-            var response = _userService.Authenticate(request);
-            return Ok(response);
+            _userService = userService;
         }
-        catch (UnauthorizedAccessException)
+
+        [HttpPost("login")]
+        [AllowAnonymous]
+        public IActionResult Login([FromBody] LoginRequestDto request)
         {
-            return Unauthorized("Usuário ou senha inválidos.");
+            var result = _userService.Authenticate(request.Username, request.Password);
+            
+            if (!result.Authenticated)
+                return Unauthorized(new { message = result.Message });
+
+            return Ok(new LoginResponseDto(
+                result.Token,
+                result.User.DisplayName,
+                result.User.Email
+            ));
         }
     }
 }

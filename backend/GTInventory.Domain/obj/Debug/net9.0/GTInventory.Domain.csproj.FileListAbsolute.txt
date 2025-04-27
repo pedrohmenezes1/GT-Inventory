@@ -1,0 +1,5 @@
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Domain\obj\Debug\net9.0\GTInventory.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Domain\obj\Debug\net9.0\GTInventory.Domain.AssemblyInfoInputs.cache
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Domain\obj\Debug\net9.0\GTInventory.Domain.AssemblyInfo.cs
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Domain\obj\Debug\net9.0\GTInventory.Domain.csproj.CoreCompileInputs.cache
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Domain\obj\Debug\net9.0\GTInventory.Domain.sourcelink.json

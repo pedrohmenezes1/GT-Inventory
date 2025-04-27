@@ -1,8 +1,7 @@
-using GTInventory.Application.DTOs.Auth;
-
-namespace GTInventory.Domain.Interfaces;
-
-public interface IUserService
+namespace GTInventory.Domain.Interfaces
 {
-    LoginResponse Authenticate(LoginRequest request);
+    public interface IUserService
+    {
+        AuthenticationResult Authenticate(string username, string password);
+    }
 }

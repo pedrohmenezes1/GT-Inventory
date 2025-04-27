@@ -1,7 +1,7 @@
-namespace GTInventory.Application.DTOs.Auth;
-
-public class LoginRequest
+namespace GTInventory.Application.DTOs.Auth
 {
-    public string Username { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
+    public record LoginRequestDto(
+        string Username,
+        string Password
+    );
 }
