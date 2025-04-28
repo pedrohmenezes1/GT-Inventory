@@ -1,0 +1,16 @@
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\bin\Debug\net9.0\GTInventory.Application.deps.json
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\bin\Debug\net9.0\GTInventory.Application.dll
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\bin\Debug\net9.0\GTInventory.Application.pdb
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\bin\Debug\net9.0\GTInventory.Domain.dll
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\bin\Debug\net9.0\GTInventory.Domain.pdb
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\GTInventory.Application.csproj.AssemblyReference.cache
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\GTInventory.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\GTInventory.Application.AssemblyInfoInputs.cache
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\GTInventory.Application.AssemblyInfo.cs
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\GTInventory.Application.csproj.CoreCompileInputs.cache
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\GTInventory.Application.sourcelink.json
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\GTInvent.64203521.Up2Date
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\GTInventory.Application.dll
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\refint\GTInventory.Application.dll
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\GTInventory.Application.pdb
+C:\Users\pedro.menezes\Documents\GT-Inventory\backend\GTInventory.Application\obj\Debug\net9.0\ref\GTInventory.Application.dll

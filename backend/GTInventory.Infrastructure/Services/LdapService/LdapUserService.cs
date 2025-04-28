@@ -1,4 +1,5 @@
 using Novell.Directory.Ldap;
+using GTInventory.Domain.Models;
 using GTInventory.Domain.Interfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;

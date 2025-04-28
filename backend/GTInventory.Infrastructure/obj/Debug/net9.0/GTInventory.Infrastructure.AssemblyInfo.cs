@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("GTInventory.Domain")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("GTInventory.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+528a8a00c28b210801ee11faaf4b0161e3c72a67")]
-[assembly: System.Reflection.AssemblyProductAttribute("GTInventory.Domain")]
-[assembly: System.Reflection.AssemblyTitleAttribute("GTInventory.Domain")]
+[assembly: System.Reflection.AssemblyProductAttribute("GTInventory.Infrastructure")]
+[assembly: System.Reflection.AssemblyTitleAttribute("GTInventory.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

@@ -156,9 +156,9 @@
           "Microsoft.Extensions.Configuration": "[7.0.0, )",
           "Microsoft.Extensions.Options": "[7.0.0, )",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "[7.0.0, )",
-          "Microsoft.IdentityModel.Tokens": "[7.0.3, )",
+          "Microsoft.IdentityModel.Tokens": "[7.4.1, )",
           "Novell.Directory.Ldap.NETStandard": "[4.0.0, )",
-          "System.IdentityModel.Tokens.Jwt": "[7.0.3, )"
+          "System.IdentityModel.Tokens.Jwt": "[7.4.1, )"
         }
       }
     }

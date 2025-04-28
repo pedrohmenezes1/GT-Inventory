@@ -263,7 +263,7 @@
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
-              "version": "[7.0.3, )"
+              "version": "[7.4.1, )"
             },
             "Novell.Directory.Ldap.NETStandard": {
               "target": "Package",
@@ -271,7 +271,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[7.0.3, )"
+              "version": "[7.4.1, )"
             }
           },
           "imports": [
