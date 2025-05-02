@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using GTInventory.Domain.Interfaces;
 using GTInventory.Infrastructure.Services.LdapService;
 

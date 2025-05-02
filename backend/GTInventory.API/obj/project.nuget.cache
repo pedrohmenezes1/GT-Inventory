@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "pPC59fu1KTQ=",
+  "dgSpecHash": "HNAFQeTHN3E=",
   "success": true,
   "projectFilePath": "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\backend\\GTInventory.API\\GTInventory.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.4\\microsoft.aspnetcore.authentication.jwtbearer.9.0.4.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.4\\microsoft.aspnetcore.openapi.9.0.4.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.extensions.configuration.binder\\7.0.0\\microsoft.extensions.configuration.binder.7.0.0.nupkg.sha512",
@@ -19,8 +21,27 @@
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.identitymodel.protocols\\8.0.1\\microsoft.identitymodel.protocols.8.0.1.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\8.0.1\\microsoft.identitymodel.protocols.openidconnect.8.0.1.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.1\\microsoft.identitymodel.tokens.8.0.1.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\novell.directory.ldap\\2.2.1\\novell.directory.ldap.2.2.1.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\novell.directory.ldap.netstandard\\4.0.0\\novell.directory.ldap.netstandard.4.0.0.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\system.directoryservices.protocols\\9.0.4\\system.directoryservices.protocols.9.0.4.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.0.1\\system.identitymodel.tokens.jwt.8.0.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Novell.Directory.Ldap 2.2.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Novell.Directory.Ldap",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }

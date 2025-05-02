@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GTInventory.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+528a8a00c28b210801ee11faaf4b0161e3c72a67")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c8a5c6f61d7bd11b23f67f6ea1aa13ffebe7be2")]
 [assembly: System.Reflection.AssemblyProductAttribute("GTInventory.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GTInventory.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

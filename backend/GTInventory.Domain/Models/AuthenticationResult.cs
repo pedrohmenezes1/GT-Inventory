@@ -1,10 +1,10 @@
 namespace GTInventory.Domain.Models
 {
     public record AuthenticationResult(
-        bool Authenticated = true,
-        UserResult? User = null,
-        string? Token = null,
-        string? Message = null
+        bool Authenticated,
+        UserResult? User,
+        string? Token,
+        string? Message
     );
 
     public record UserResult(

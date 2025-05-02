@@ -1,149 +1,141 @@
-using Novell.Directory.Ldap;
+using System;
+using System.DirectoryServices.Protocols;
+using System.Net;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System.Text;
 using GTInventory.Domain.Models;
 using GTInventory.Domain.Interfaces;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using System.Security.Claims;
-using System.IdentityModel.Tokens.Jwt;
+using GTInventory.Infrastructure.Configuration;
 
 namespace GTInventory.Infrastructure.Services.LdapService
 {
     public class LdapUserService : IUserService
     {
-        private readonly LdapConfig _config;
+        private readonly LdapConfig _ldapConfig;
+        private readonly JwtConfig _jwtConfig;
+        private readonly ILogger<LdapUserService> _logger;
 
-        public LdapUserService(IOptions<LdapConfig> config)
+        public LdapUserService(
+            IOptions<LdapConfig> ldapConfig,
+            IOptions<JwtConfig> jwtConfig,
+            ILogger<LdapUserService> logger)
         {
-            _config = config.Value;
+            _ldapConfig = ldapConfig.Value;
+            _jwtConfig = jwtConfig.Value;
+            _logger = logger;
+            ValidateConfigurations();
+        }
+
+        private void ValidateConfigurations()
+        {
+            _ldapConfig.Validate();
+            if (string.IsNullOrWhiteSpace(_jwtConfig.Secret))
+                throw new ArgumentNullException(nameof(_jwtConfig.Secret), "JwtConfig.Secret não pode ser nulo ou vazio");
         }
 
         public AuthenticationResult Authenticate(string username, string password)
         {
             try
             {
-                var formattedUsername = FormatUsername(username, _config.Domain);
-                
-                using var connection = new LdapConnection();
-                
-                connection.SecureSocketLayer = _config.UseSSL;
-                if (_config.IgnoreCertificateErrors)
+                using var ldap = new LdapConnection(new LdapDirectoryIdentifier(_ldapConfig.Server, _ldapConfig.Port))
                 {
-                    connection.UserDefinedServerCertValidationDelegate += (sender, certificate, chain, errors) => true;
+                    AuthType = AuthType.Negotiate
+                };
+
+                var credential = new NetworkCredential(FormatUsername(username), password);
+
+                if (_ldapConfig.IgnoreCertificateErrors)
+                {
+                    ldap.SessionOptions.VerifyServerCertificate += (conn, cert) => true;
                 }
 
-                connection.Connect(_config.Server, _config.Port);
-                connection.Bind(formattedUsername, password);
+                ldap.Bind(credential);
 
                 var searchFilter = $"(sAMAccountName={ExtractUsername(username)})";
-                var result = connection.Search(
-                    _config.BaseDn,
-                    LdapConnection.ScopeSub,
+                var request = new SearchRequest(
+                    _ldapConfig.BaseDn,
                     searchFilter,
-                    new[] { "displayName", "mail", "userPrincipalName", "memberOf" },
-                    false
+                    SearchScope.Subtree,
+                    new[] { "displayName", "mail", "userPrincipalName" }
                 );
 
-                if (!result.HasMore())
-                    return new AuthenticationResult("Usuário não encontrado no diretório");
+                var response = (SearchResponse)ldap.SendRequest(request);
 
-                var userEntry = result.Next();
-                var token = GenerateJwtToken(userEntry);
+                if (response.Entries.Count == 0)
+                    return new AuthenticationResult(false, null, null, "Usuário não encontrado");
 
-                return new AuthenticationResult(
-                    new UserResult(
-                        userEntry.GetAttribute("displayName")?.StringValue ?? string.Empty,
-                        userEntry.GetAttribute("mail")?.StringValue ?? string.Empty,
-                        userEntry.GetAttribute("userPrincipalName")?.StringValue ?? string.Empty
-                    ),
-                    token
+                var entry = response.Entries[0];
+
+                var user = new UserResult(
+                    entry.Attributes["displayName"]?[0]?.ToString() ?? string.Empty,
+                    entry.Attributes["mail"]?[0]?.ToString() ?? string.Empty,
+                    entry.Attributes["userPrincipalName"]?[0]?.ToString() ?? string.Empty
                 );
+
+                var token = GenerateJwtToken(user);
+                return new AuthenticationResult(true, user, token, null);
             }
             catch (LdapException ex)
             {
-                return ex.ResultCode switch
-                {
-                    49 => new AuthenticationResult("Credenciais inválidas"),
-                    81 => new AuthenticationResult("Servidor AD indisponível"),
-                    _ => new AuthenticationResult($"Erro de autenticação: {ex.Message}")
-                };
+                _logger.LogError(ex, "Erro de autenticação LDAP para {Username}", username);
+                return new AuthenticationResult(false, null, null, "Credenciais inválidas ou erro de conexão");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(ex, "Erro crítico durante autenticação");
+                return new AuthenticationResult(false, null, null, "Erro interno no servidor");
             }
         }
 
-        private string FormatUsername(string username, string domain)
+        public async Task<AuthenticationResult> AuthenticateAsync(string username, string password)
         {
-            if (username.Contains('\\') || username.Contains('@'))
+            return await Task.Run(() => Authenticate(username, password));
+        }
+
+        private string FormatUsername(string username)
+        {
+            if (username.Contains("\\") || username.Contains("@"))
                 return username;
 
-            return _config.UserNameFormat switch
+            return _ldapConfig.UserNameFormat switch
             {
-                "UPN" => $"{username}@{domain.ToLower()}.intra.net",
-                _ => $"{domain}\\{username}"
+                "UPN" => $"{username}@{_ldapConfig.Domain.ToLower()}.intra.net",
+                _ => $"{_ldapConfig.Domain}\\{username}"
             };
         }
 
         private string ExtractUsername(string input)
         {
-            if (input.Contains('\\')) return input.Split('\\')[1];
-            if (input.Contains('@')) return input.Split('@')[0];
+            if (input.Contains("\\")) return input.Split('\\')[1];
+            if (input.Contains("@")) return input.Split('@')[0];
             return input;
         }
 
-        private string GenerateJwtToken(LdapEntry userEntry)
+        private string GenerateJwtToken(UserResult user)
         {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_config.JwtSecret);
+            var secret = _jwtConfig.Secret ?? throw new InvalidOperationException("JwtConfig.Secret não foi configurado");
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var tokenDescriptor = new SecurityTokenDescriptor
+            var claims = new[]
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim(ClaimTypes.Name, userEntry.GetAttribute("displayName")?.StringValue ?? ""),
-                    new Claim(ClaimTypes.Email, userEntry.GetAttribute("mail")?.StringValue ?? ""),
-                    new Claim("upn", userEntry.GetAttribute("userPrincipalName")?.StringValue ?? "")
-                }),
-                Expires = DateTime.UtcNow.AddHours(_config.JwtExpirationHours),
-                SigningCredentials = new SigningCredentials(
-                    new SymmetricSecurityKey(key),
-                    SecurityAlgorithms.HmacSha256Signature)
+                new Claim(ClaimTypes.Name, user.DisplayName),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim("upn", user.UserPrincipalName)
             };
 
-            return tokenHandler.WriteToken(tokenDescriptor);
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(_jwtConfig.ExpirationHours),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
-
-    public class LdapConfig
-    {
-        public string Server { get; set; } = "retaguarda.intra.net";
-        public int Port { get; set; } = 636;
-        public string BaseDn { get; set; } = "DC=retaguarda,DC=intra,DC=net";
-        public string Domain { get; set; } = "RETAGUARDA";
-        public bool UseSSL { get; set; } = true;
-        public bool IgnoreCertificateErrors { get; set; } = false;
-        public string UserNameFormat { get; set; } = "SAMAccount";
-        public string JwtSecret { get; set; }
-        public int JwtExpirationHours { get; set; }
-
-        public void Validate()
-        {
-            if (string.IsNullOrWhiteSpace(Server))
-                throw new ArgumentNullException(nameof(Server));
-            
-            if (Port is < 1 or > 65535)
-                throw new ArgumentOutOfRangeException(nameof(Port));
-        }
-    }
-
-    public record AuthenticationResult(
-        bool Authenticated = true,
-        UserResult? User = null,
-        string? Token = null,
-        string? Message = null
-    );
-
-    public record UserResult(
-        string DisplayName,
-        string Email,
-        string UserPrincipalName
-    );
 }

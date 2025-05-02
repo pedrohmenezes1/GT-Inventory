@@ -1,10 +1,10 @@
-// GTInventory.Domain/Interfaces/IUserService.cs
 using GTInventory.Domain.Models;
+using System.Threading.Tasks;
 
 namespace GTInventory.Domain.Interfaces
 {
     public interface IUserService
     {
-        AuthenticationResult Authenticate(string username, string password);
+        Task<AuthenticationResult> AuthenticateAsync(string username, string password);
     }
 }

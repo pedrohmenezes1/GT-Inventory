@@ -11,6 +11,21 @@
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "8.0.1"
         }
       },
+      "Microsoft.AspNetCore.OpenApi": {
+        "type": "Direct",
+        "requested": "[9.0.4, )",
+        "resolved": "9.0.4",
+        "contentHash": "GfZWPbZz1aAtEO3wGCkpeyRc0gzr/+VRHnUgY/YjqVPDlHbeKWCXw3IxKarQdo9myC2O1QBf652Mo50QqbXYRg==",
+        "dependencies": {
+          "Microsoft.OpenApi": "1.6.17"
+        }
+      },
+      "Novell.Directory.Ldap": {
+        "type": "Direct",
+        "requested": "[2.2.1, )",
+        "resolved": "2.2.1",
+        "contentHash": "mK3SU8zbGHZY7/DglN5Hs5RDqLpmDIJ3L988ICC8ED4v5JlbxnPD1PKIlHVYmE037wNGx0T+TGt2GaykufO77A=="
+      },
       "Novell.Directory.Ldap.NETStandard": {
         "type": "Direct",
         "requested": "[4.0.0, )",
@@ -19,6 +34,29 @@
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "9.0.2"
         }
+      },
+      "Swashbuckle.AspNetCore": {
+        "type": "Direct",
+        "requested": "[6.5.0, )",
+        "resolved": "6.5.0",
+        "contentHash": "FK05XokgjgwlCI6wCT+D4/abtQkL1X1/B9Oas6uIwHFmYrIO9WUD5aLC9IzMs9GnHfUXOtXZ2S43gN1mhs5+aA==",
+        "dependencies": {
+          "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
+          "Swashbuckle.AspNetCore.Swagger": "6.5.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
+          "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0"
+        }
+      },
+      "System.DirectoryServices.Protocols": {
+        "type": "Direct",
+        "requested": "[9.0.4, )",
+        "resolved": "9.0.4",
+        "contentHash": "fGdiJme2/nN4xKV6sP67bN4HBz+EdoTYECFH5YVIiIRm/AJwCB+Y/4NW/7xtOFR2h6STlTY+e2/VztiaSI+ZaA=="
+      },
+      "Microsoft.Extensions.ApiDescription.Server": {
+        "type": "Transitive",
+        "resolved": "6.0.5",
+        "contentHash": "Ckb5EDBUNJdFWyajfXzUIMRkhf52fHZOQuuZg/oiu8y7zDCVwD0iHhew6MnThjHmevanpxL3f5ci2TtHQEN6bw=="
       },
       "Microsoft.Extensions.Configuration": {
         "type": "Transitive",
@@ -130,6 +168,37 @@
           "Microsoft.IdentityModel.Logging": "8.0.1"
         }
       },
+      "Microsoft.OpenApi": {
+        "type": "Transitive",
+        "resolved": "1.6.17",
+        "contentHash": "Le+kehlmrlQfuDFUt1zZ2dVwrhFQtKREdKBo+rexOwaCoYP0/qpgT9tLxCsZjsgR5Itk1UKPcbgO+FyaNid/bA=="
+      },
+      "Swashbuckle.AspNetCore.Swagger": {
+        "type": "Transitive",
+        "resolved": "6.5.0",
+        "contentHash": "XWmCmqyFmoItXKFsQSwQbEAsjDKcxlNf1l+/Ki42hcb6LjKL8m5Db69OTvz5vLonMSRntYO1XLqz0OP+n3vKnA==",
+        "dependencies": {
+          "Microsoft.OpenApi": "1.2.3"
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerGen": {
+        "type": "Transitive",
+        "resolved": "6.5.0",
+        "contentHash": "Y/qW8Qdg9OEs7V013tt+94OdPxbRdbhcEbw4NiwGvf4YBcfhL/y7qp/Mjv/cENsQ2L3NqJ2AOu94weBy/h4KvA==",
+        "dependencies": {
+          "Swashbuckle.AspNetCore.Swagger": "6.5.0"
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerUI": {
+        "type": "Transitive",
+        "resolved": "6.5.0",
+        "contentHash": "OvbvxX+wL8skxTBttcBsVxdh73Fag4xwqEU2edh4JMn7Ws/xJHnY/JB1e9RoCb6XpDxUF3hD9A0Z1lEUx40Pfw=="
+      },
+      "System.ComponentModel.Annotations": {
+        "type": "Transitive",
+        "resolved": "5.0.0",
+        "contentHash": "dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg=="
+      },
       "System.IdentityModel.Tokens.Jwt": {
         "type": "Transitive",
         "resolved": "8.0.1",
@@ -146,7 +215,10 @@
         }
       },
       "gtinventory.domain": {
-        "type": "Project"
+        "type": "Project",
+        "dependencies": {
+          "System.ComponentModel.Annotations": "[5.0.0, )"
+        }
       },
       "gtinventory.infrastructure": {
         "type": "Project",
@@ -154,10 +226,12 @@
           "GTInventory.Application": "[1.0.0, )",
           "GTInventory.Domain": "[1.0.0, )",
           "Microsoft.Extensions.Configuration": "[7.0.0, )",
+          "Microsoft.Extensions.Logging.Abstractions": "[9.0.2, )",
           "Microsoft.Extensions.Options": "[7.0.0, )",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "[7.0.0, )",
           "Microsoft.IdentityModel.Tokens": "[7.4.1, )",
           "Novell.Directory.Ldap.NETStandard": "[4.0.0, )",
+          "System.DirectoryServices.Protocols": "[9.0.4, )",
           "System.IdentityModel.Tokens.Jwt": "[7.4.1, )"
         }
       }

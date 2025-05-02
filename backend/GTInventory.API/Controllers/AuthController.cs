@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using GTInventory.Application.DTOs.Auth;
-using GTInventory.Application.Services;
+using GTInventory.Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 
 namespace GTInventory.API.Controllers
@@ -15,12 +15,15 @@ namespace GTInventory.API.Controllers
         {
             _userService = userService;
         }
-
+ 
         [HttpPost("login")]
         [AllowAnonymous]
-        public IActionResult Login([FromBody] LoginRequestDto request)
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
         {
-            var result = _userService.Authenticate(request.Username, request.Password);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _userService.AuthenticateAsync(request.Username, request.Password);
             
             if (!result.Authenticated)
                 return Unauthorized(new { message = result.Message });

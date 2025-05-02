@@ -52,9 +52,25 @@
               "target": "Package",
               "version": "[9.0.4, )"
             },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Novell.Directory.Ldap": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
             "Novell.Directory.Ldap.NETStandard": {
               "target": "Package",
               "version": "[4.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "System.DirectoryServices.Protocols": {
+              "target": "Package",
+              "version": "[9.0.4, )"
             }
           },
           "imports": [
@@ -182,6 +198,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -253,6 +275,10 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "Microsoft.Extensions.Options": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -268,6 +294,10 @@
             "Novell.Directory.Ldap.NETStandard": {
               "target": "Package",
               "version": "[4.0.0, )"
+            },
+            "System.DirectoryServices.Protocols": {
+              "target": "Package",
+              "version": "[9.0.4, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

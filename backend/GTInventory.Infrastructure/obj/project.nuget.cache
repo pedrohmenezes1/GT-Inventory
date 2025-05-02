@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "M4kIJD/Ei0o=",
+  "dgSpecHash": "0Am2O/rgGWY=",
   "success": true,
   "projectFilePath": "C:\\Users\\pedro.menezes\\Documents\\GT-Inventory\\backend\\GTInventory.Infrastructure\\GTInventory.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,8 @@
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.identitymodel.logging\\7.4.1\\microsoft.identitymodel.logging.7.4.1.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.4.1\\microsoft.identitymodel.tokens.7.4.1.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\novell.directory.ldap.netstandard\\4.0.0\\novell.directory.ldap.netstandard.4.0.0.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\pedro.menezes\\.nuget\\packages\\system.directoryservices.protocols\\9.0.4\\system.directoryservices.protocols.9.0.4.nupkg.sha512",
     "C:\\Users\\pedro.menezes\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.4.1\\system.identitymodel.tokens.jwt.7.4.1.nupkg.sha512"
   ],
   "logs": []
